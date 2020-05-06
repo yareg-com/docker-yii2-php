@@ -14,6 +14,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --
 # Install software
 RUN apt update && \
     apt install -yy --no-install-recommends --no-install-suggests \
+    zip \
     ffmpeg \
     && \
     apt clean && \
