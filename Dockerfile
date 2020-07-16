@@ -1,10 +1,10 @@
 FROM yiisoftware/yii2-php:7.0-apache
 
 # Change document root for Apache
-RUN sed -i -e 's|/app/web|/app/frontend/web|g' /etc/apache2/sites-available/000-default.conf
+RUN sed -i -e 's|/app/web|/app/frontend/web|g' /etc/apache2/sites-available/000-default.conf && \
 
 # Add contrib non-free
-RUN sed -i -e 's|debian stretch main|debian stretch main contrib non-free|g' /etc/apt/sources.list && \
+    sed -i -e 's|debian stretch main|debian stretch main contrib non-free|g' /etc/apt/sources.list && \
     sed -i -e 's|debian-security stretch/updates main|debian-security stretch/updates main contrib non-free|g' /etc/apt/sources.list && \
     sed -i -e 's|debian stretch-updates main|debian stretch-updates main contrib non-free|g' /etc/apt/sources.list
 
