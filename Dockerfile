@@ -7,12 +7,11 @@ RUN sed -i -e 's|/app/web|/app/frontend/web|g' /etc/apache2/sites-available/000-
     sed -i -e 's|debian stretch-updates main|debian stretch-updates main contrib non-free|g' /etc/apt/sources.list
 
 # Enable JPEG support in GD
-RUN docker-php-ext-configure gd --with-freetype=/usr --with-jpeg=/usr && docker-php-ext-install -j "$(nproc)" gd
+#RUN docker-php-ext-configure gd --with-freetype=/usr --with-jpeg=/usr && docker-php-ext-install -j "$(nproc)" gd
 
 # Install software
 RUN apt update && \
     apt install -yy --no-install-recommends --no-install-suggests \
-    zip \
     ffmpeg \
     && \
     apt clean && \
