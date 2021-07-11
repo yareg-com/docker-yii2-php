@@ -6,7 +6,7 @@ RUN sed -i -e 's|/app/web|/app/frontend/web|g' /etc/apache2/sites-available/000-
     sed -i -e 's|debian stretch-updates main|debian stretch-updates main contrib non-free|g' /etc/apt/sources.list && \    
     apt update && \
     apt install -yy --no-install-recommends --no-install-suggests \
-    zip ffmpeg libjpeg-dev libpng-dev && \
+    zip ffmpeg libjpeg-dev libpng-dev libfreetype-dev && \
     docker-php-ext-configure gd --with-freetype-dir=/usr --with-jpeg-dir=/usr --with-png-dir=/usr && docker-php-ext-install -j "$(nproc)" gd && \
     apt clean && \
     apt autoremove -yy --purge && \
